@@ -1,0 +1,5 @@
+experiments:
+  hello-world:
+    type: standalone
+    environment:
+      build: .
