@@ -12,6 +12,6 @@ RUN pip install requests
 COPY . /my-approach
 WORKDIR /my-approach
 
-RUN wget https://raw.githubusercontent.com/empiricalci/empirical.py/master/empirical.py
+RUN wget http://raw.githubusercontent.com/empiricalci/empirical.py/master/empirical.py
 
 ENTRYPOINT ["python", "main.py"]
