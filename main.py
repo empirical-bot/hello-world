@@ -1,4 +1,5 @@
 import empirical
+import csv
 
 # Define and Instantiate Solver
 class Solver(object):
@@ -8,14 +9,27 @@ class Solver(object):
 
 solver = Solver()
 
+def read_data():
+  data_file = '/data/75821d9915567987edd0ff3271e276c922218c638e05efb2955a32c4526abdd9'
+  def to_ints_tuple(row):
+    return tuple(map(int, row))
+  return map(to_ints_tuple, csv.reader(open(data_file, 'rb'), delimiter=','))
+
+def read_answers():
+   answer_file = '/data/3d7219dab4803e82ad97ece9a49fc25c6fd3762a369236d131cb729f32946ff2'
+   ans = list(csv.reader(open(answer_file, 'rb'), delimiter=','))
+   return map(lambda x: int(x[0]), ans)
+
 # Send problems to solvers
-dataset = [(1,2), (3,4), (2,-3)]
+dataset = read_data()
+print 'data:', dataset
 solutions = []
 for problem in dataset:
     solutions.append(solver.solve(*problem))
 
 # Evaluate solutions against ground truth
-answers = [3, 7, -1]
+answers = read_answers()
+print 'answers:', answers
 correct_count = 0
 for i in xrange(len(dataset)):
     if solutions[i] == answers[i]:
