@@ -46,3 +46,8 @@ results = {
     }
 }
 empirical.postResults(results)
+
+# Also save them to the workspace
+import json
+with open('/workspace/output.json', 'w') as output:
+    json.dump(results, output)
