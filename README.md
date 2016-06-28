@@ -5,3 +5,5 @@ Sample standalone project
 ## CLI
 
 Run
+
+    run.bat
