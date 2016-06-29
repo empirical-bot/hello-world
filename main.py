@@ -1,4 +1,4 @@
-import empiricalci from empiricalci
+from empiricalci import empiricalci
 
 # Define and Instantiate Solver
 class Solver(object):
