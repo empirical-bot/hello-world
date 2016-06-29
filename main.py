@@ -1,4 +1,4 @@
-import empirical
+from empiricalci import empiricalci
 import csv
 
 # Define and Instantiate Solver
@@ -38,11 +38,13 @@ for i in xrange(len(dataset)):
 accuracy = correct_count / len(dataset)
 
 # Save results
-results = {
-    'overall': {
-        'type': 'table',
-        'metric': 'Accuracy',
-        'value': accuracy
-    }
-}
-empirical.postResults(results)
+#results = {
+#    'overall': {
+#        'type': 'table',
+#        'metric': 'Accuracy',
+#        'value': accuracy
+#    }
+#}
+#empirical.postResults(results)
+
+empiricalci.saveOverall('accuracy', accuracy)

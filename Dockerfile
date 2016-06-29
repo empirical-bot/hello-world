@@ -5,13 +5,10 @@ FROM python:2.7-alpine
 RUN apk add --update build-base wget
 
 # TODO: These should be replaced by pip install empirical
-RUN pip install zerorpc 
-RUN pip install requests
+RUN pip install empiricalci
 
 # Add files
 COPY . /my-approach
 WORKDIR /my-approach
-
-RUN wget --no-check-certificate https://raw.githubusercontent.com/empiricalci/empirical.py/master/empirical.py
 
 ENTRYPOINT ["python", "main.py"]
